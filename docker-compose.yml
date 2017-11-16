@@ -4,6 +4,8 @@ services:
     image: sixlive/core-php-web
     ports:
       - ${DOCKER_WEB_PORT}:80
+    volumes:
+      - .:/var/www
 
   mysql:
     image: mysql:5.7
