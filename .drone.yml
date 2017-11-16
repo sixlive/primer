@@ -22,7 +22,7 @@ pipeline:
     image: node:9
     commands:
       - npm i -g yarn
-      - yarn install
+      - yarn
       - yarn development
 
   lint:
