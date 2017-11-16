@@ -1,0 +1,50 @@
+clone:
+  git:
+    image: plugins/git
+    skip_verify: true
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_ROOT_PASSWORD=secret
+
+pipeline:
+  test_build_php:
+    group: test_build
+    image: composer
+    commands:
+      - composer install --prefer-dist
+
+  test_build_node:
+    group: test_build
+    image: node:9
+    commands:
+      - npm i -g yarn
+      - yarn
+      - yarn dev
+
+  lint:
+    image: sixlive/core-php
+    commands:
+      - vendor/bin/php-cs-fixer fix --dry-run --diff
+
+  dependency_check:
+    image: sixlive/core-php
+    commands:
+      - vendor/bin/security-checker security:check
+
+  phpunit:
+    image: sixlive/core-php
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_USERNAME=root
+      - DB_PORT=3306
+      - DB_PASSWORD=secret
+      - DB_DATABASE=laravel
+    commands:
+      - sleep 15
+      - touch .env
+      - vendor/bin/phpunit
