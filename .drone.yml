@@ -11,14 +11,14 @@ services:
       - MYSQL_ROOT_PASSWORD=secret
 
 pipeline:
-  test_build_php:
-    group: test_build
+  test_php_build:
+    group: build_test
     image: composer
     commands:
       - composer install --prefer-dist
 
-  test_build_node:
-    group: test_build
+  test_node_build:
+    group: build_test
     image: node:8
     commands:
       - npm i -g yarn
@@ -50,6 +50,7 @@ pipeline:
       - vendor/bin/phpunit
 
   production_php_build:
+    group: build_production
     when:
       branch: master
       status: success
@@ -61,6 +62,7 @@ pipeline:
       # - php artisan config:cache
 
   production_node_build:
+    group: build_production
     when:
       branch: master
       status: success
