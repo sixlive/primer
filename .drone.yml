@@ -52,7 +52,6 @@ pipeline:
   production_php_build:
     when:
       branch: master
-      event: tag
       status: success
     image: composer
     commands:
@@ -64,9 +63,8 @@ pipeline:
   production_node_build:
     when:
       branch: master
-      event: tag
       status: success
     image: node:8
     commands:
-      - yarn install --production --ignore-scripts --prefer-offline
       - yarn production
+      - rm -rf node_modules
