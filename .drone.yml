@@ -19,7 +19,7 @@ pipeline:
 
   test_build_node:
     group: test_build
-    image: node:9
+    image: node:8
     commands:
       - npm i -g yarn
       - yarn
@@ -66,7 +66,7 @@ pipeline:
       branch: master
       event: tag
       status: success
-    image: node:9
+    image: node:8
     commands:
       - yarn install --production --ignore-scripts --prefer-offline
       - yarn production
