@@ -21,9 +21,8 @@ pipeline:
     group: test_build
     image: node:9
     commands:
-      - npm i -g yarn
-      - yarn
-      - yarn development
+      - npm install
+      - npm run development
 
   lint:
     image: sixlive/core-php
