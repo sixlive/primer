@@ -21,9 +21,8 @@ pipeline:
     group: test_build
     image: node:9
     commands:
-      - npm i -g yarn
-      - yarn
-      - yarn dev
+      - npm install
+      - npm run development
 
   lint:
     image: sixlive/core-php
@@ -48,3 +47,25 @@ pipeline:
       - sleep 15
       - touch .env
       - vendor/bin/phpunit
+
+  production_php_build:
+    when:
+      branch: master
+      event: tag
+      status: success
+    image: composer
+    commands:
+      - rm -rf vendor
+      - composer install --prefer-dist --no-dev --optimize-autoloader
+      # - php artisan route:cache
+      # - php artisan config:cache
+
+  production_node_build:
+    when:
+      branch: master
+      event: tag
+      status: success
+    image: node:9
+    commands:
+      - yarn install --production --ignore-scripts --prefer-offline
+      - yarn production
