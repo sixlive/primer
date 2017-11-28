@@ -1,6 +1,6 @@
-# Laravel Starter
+# Primer
 
-[![Drone CI](https://drone.sixlabs.io/api/badges/sixlive/laravel-starter/status.svg)](https://drone.sixlabs.io/sixlive/laravel-starter)
+[![Drone CI](https://drone.sixlabs.io/api/badges/sixlive/primer/status.svg)](https://drone.sixlabs.io/sixlive/primer)
 
 Insipred by https://github.com/spatie/spoon.
 
