@@ -1,5 +1,6 @@
 let mix = require('laravel-mix');
 var tailwindcss = require('tailwindcss');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -15,7 +16,8 @@ var tailwindcss = require('tailwindcss');
 mix.js('resources/assets/js/app.js', 'public/js')
    .postCss('resources/assets/css/main.css', 'public/css', [
         tailwindcss('tailwind.js'),
-   ]);
+   ])
+   .purgeCss();
 
 // If you want to use LESS for your preprocessing
 // mix.less('resources/assets/less/main.less', 'public/css')
