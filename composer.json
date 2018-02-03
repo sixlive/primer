@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "adamwathan/laravel-preset": "@dev",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
@@ -54,6 +55,12 @@
         "styles:check": "vendor/bin/php-cs-fixer fix --dry-run --diff",
         "styles:fix": "vendor/bin/php-cs-fixer fix"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adamwathan/laravel-preset"
+        }
+    ],
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
