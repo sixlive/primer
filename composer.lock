@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5707db53d42899e4bacdcfa2141a60b2",
+    "content-hash": "cd1590b29e25db3bed60a4778d224f10",
     "packages": [
+        {
+            "name": "adamwathan/laravel-preset",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adamwathan/laravel-preset.git",
+                "reference": "9f9d0c6e769790aa530e109bd3db36a66bbcdc60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adamwathan/laravel-preset/zipball/9f9d0c6e769790aa530e109bd3db36a66bbcdc60",
+                "reference": "9f9d0c6e769790aa530e109bd3db36a66bbcdc60",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NothingWorks\\LaravelPreset\\PresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NothingWorks\\LaravelPreset\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Adam Wathan's Laravel Frontend Preset",
+            "keywords": [
+                "laravel",
+                "preset"
+            ],
+            "support": {
+                "source": "https://github.com/adamwathan/laravel-preset/tree/master",
+                "issues": "https://github.com/adamwathan/laravel-preset/issues"
+            },
+            "time": "2018-01-29T14:21:15+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -4684,7 +4728,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "adamwathan/laravel-preset": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
