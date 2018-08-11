@@ -1,7 +1,8 @@
 # Primer
 
-[![Drone CI](https://drone.sixlabs.io/api/badges/sixlive/primer/status.svg)](https://drone.sixlabs.io/sixlive/primer)
+[![Build Status](https://travis-ci.org/sixlive/primer.svg?branch=master)](https://travis-ci.org/sixlive/primer) 
 
 Insipred by https://github.com/spatie/spoon.
 
-Docs & Stuff to come
+## Front End Preset
+Primer ships with [laravel-frontend-presets/tailwindcss](https://github.com/laravel-frontend-presets/tailwindcss). By default `php artisan preset tailwindcss` is configured. If you wish to add Laravel's default auth, run `php artisan preset tailwindcss-auth`.
